@@ -5,20 +5,35 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/login', name: 'login', component: () => import('../pages/Login.vue') },
-    { path: '/', component: () => import('../pages/Home.vue') },
+    {
+      path: '/',
+      component: () => import('../pages/Home.vue'),
+      meta: { requiresAuth: true },
+    },
     {
       path: '/products/:id',
       name: 'product-detail',
       component: () => import('@/pages/ProductDetail.vue'),
+      meta: { requiresAuth: true },
     },
-    { path: '/products', name: 'products', component: () => import('@/pages/ProductsList.vue') },
+    {
+      path: '/products',
+      name: 'products',
+      component: () => import('@/pages/ProductsList.vue'),
+      meta: { requiresAuth: true },
+    },
     {
       path: '/coming-soon',
       name: 'coming-soon',
       component: () => import('@/pages/OnProgress.vue'),
-      meta: { hideLayout: false },
+      meta: { hideLayout: false, requiresAuth: true },
     },
-    { path: '/cart', name: 'cart', component: () => import('@/pages/Cart.vue') },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('@/pages/Cart.vue'),
+      meta: { requiresAuth: true },
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
