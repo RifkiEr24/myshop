@@ -150,15 +150,15 @@ function handleAddToCart() {
       <div class="mt-3 flex gap-2 w-full">
         <router-link
           :to="{ name: 'product-detail', params: { id: product.id } }"
-          class="w-1/2"
+          class="w-1/2 "
         >
-          <Button type="button" variant="outline" class="w-full">
+          <Button type="button" variant="outline" class="w-full cursor-pointer">
             View
           </Button>
         </router-link>
         <Button
           type="button"
-          class="font-semibold w-1/2"
+          class="font-semibold w-1/2 cursor-pointer"
           :disabled="product.stock <= 0"
           @click="handleAddToCart"
         >

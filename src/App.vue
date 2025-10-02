@@ -8,10 +8,15 @@ const route = useRoute()
 </script>
 
 <template>
+  <div class="flex flex-col min-h-screen">
   <Navbar v-if="route.name !== 'login'" />
-
+    <main>
   <router-view />
 
+    </main>
+
   <Footer v-if="route.name !== 'login'" />
+  </div>
+
     <Toaster  theme="light" :rich-colors="true"/>
 </template>
